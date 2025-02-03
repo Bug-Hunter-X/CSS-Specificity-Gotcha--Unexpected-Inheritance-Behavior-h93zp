@@ -1,0 +1,17 @@
+The following CSS code snippet demonstrates an uncommon error related to specificity and inheritance:
+
+```css
+div {
+  color: blue;
+}
+
+p {
+  color: red;
+}
+
+div p {
+  color: green; /* This will not override the color of the <p> element */
+}
+```
+
+The issue lies in the specificity of the CSS rules. While `div p` targets `<p>` elements within `<div>` elements, the more specific rule `p { color: red; }` takes precedence, causing the text to remain red, not green.  This is unexpected behavior for developers unfamiliar with CSS specificity nuances. 
