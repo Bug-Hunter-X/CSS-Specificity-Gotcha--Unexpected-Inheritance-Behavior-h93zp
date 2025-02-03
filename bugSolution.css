@@ -1,0 +1,40 @@
+The solution involves understanding and using CSS specificity correctly.  Here are two approaches:
+
+**1. Using `!important` (generally discouraged):**
+
+```css
+div {
+  color: blue;
+}
+
+p {
+  color: red;
+}
+
+div p {
+  color: green !important; /* Now this overrides the p selector */
+}
+```
+
+**2. Increasing Specificity (preferred method):**
+
+Instead of relying on `!important`, create a more specific selector:
+
+```css
+div {
+  color: blue;
+}
+
+p {
+  color: red;
+}
+
+.specific-paragraph {
+    color: green;
+}
+
+<div>
+   <p class="specific-paragraph">This text will be green</p>
+</div>
+```
+By adding a class `.specific-paragraph` to the `<p>` element, we ensure the style applies only to elements with that class, overcoming the default specificity issue.  This is generally a better approach than using `!important`, as `!important` breaks CSS's cascade in an unpredictable manner.
